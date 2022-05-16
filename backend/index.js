@@ -2,6 +2,7 @@ const express = require('express')
 const app = express()
 const mongoose = require('mongoose')
 const cors = require('cors')
+
 const MessageBoardModel = require('./models/MessageBoard')
 
 app.use(cors())
@@ -18,6 +19,5 @@ app.get('/', async(req,res)=>{
         }
     })
 })
-
 
 app.listen(3001, ()=>{console.log(`connect to port 3001`)})

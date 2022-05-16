@@ -1,8 +1,7 @@
 import Axios from 'axios'
 import {useState, useEffect} from 'react'
 import Header from './components/Header'
-import { Button, Form, InputGroup, FormControl } from 'react-bootstrap';
-
+import { InputGroup, FormControl } from 'react-bootstrap';
 
 function App() {
 
@@ -24,7 +23,6 @@ function App() {
       <div className='input-container'>
         <div>
         <h2>Add Message</h2>
-
           <InputGroup  >
             <InputGroup.Text  id="inputGroup-sizing-default">Name</InputGroup.Text>
             <FormControl
@@ -40,7 +38,6 @@ function App() {
               aria-describedby="inputGroup-sizing-default"
             />
           </InputGroup>
-
           <button className='text-light bg-dark'>Submit</button>
         </div>
       </div>
