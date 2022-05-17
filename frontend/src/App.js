@@ -48,9 +48,10 @@ function App() {
       {showData.map((data,i)=>{
         return(
           <div className='messageboard-container' key={i}>
-            <h4>#{i}</h4>
-            <h4>Name: {data.name}</h4>
-            <h4>Message: {data.message}</h4>
+            <h6>#{i}</h6>
+            <h4>"{data.message}"</h4>
+            <h6>by {data.name}</h6>
+            {/* <h6>{Date()}</h6> */}
           </div>
         )
       })}
