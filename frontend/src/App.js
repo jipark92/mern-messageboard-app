@@ -19,10 +19,9 @@ function App() {
   return (
     <div className="main-container">
       <Header/>
-
+      <h2>Add Message</h2>
       <div className='input-container'>
         <div>
-        <h2>Add Message</h2>
           <InputGroup  >
             <InputGroup.Text  id="inputGroup-sizing-default">Name</InputGroup.Text>
             <FormControl
@@ -38,7 +37,7 @@ function App() {
               aria-describedby="inputGroup-sizing-default"
             />
           </InputGroup>
-          <button className='text-light bg-dark'>Submit</button>
+          <button className='text-light bg-primary'>Submit</button>
         </div>
       </div>
 
@@ -49,7 +48,7 @@ function App() {
       {showData.map((data,i)=>{
         return(
           <div className='messageboard-container' key={i}>
-            <h4># {i}</h4>
+            <h4>#{i}</h4>
             <h4>Name: {data.name}</h4>
             <h4>Message: {data.message}</h4>
           </div>
