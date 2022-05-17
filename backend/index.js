@@ -10,6 +10,7 @@ app.use(express.json())
 
 mongoose.connect('mongodb+srv://norf:norf@cluster0.6ch0i.mongodb.net/messageboard?retryWrites=true&w=majority')
 
+// display all database
 app.get('/', async(req,res)=>{
     MessageBoardModel.find({},(err,result)=>{
         if (err) {
@@ -18,6 +19,14 @@ app.get('/', async(req,res)=>{
             res.json(result)
         }
     })
+})
+
+// create/input new data
+app.post ('/create', async (req,res)=>{
+    const message = req.body
+    const newMessage = new MessageBoardModel(message)
+    await newMessage.save();
+    res.json(message)
 })
 
 app.listen(3001, ()=>{console.log(`connect to port 3001`)})

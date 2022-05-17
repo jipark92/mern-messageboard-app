@@ -11,7 +11,6 @@ const MessageBoardSchema = new mongoose.Schema({
     }
 })
 
-
 const MessageBoardModel = mongoose.model('messageboard', MessageBoardSchema)
 
 module.exports = MessageBoardModel

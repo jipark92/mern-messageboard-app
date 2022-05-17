@@ -4,17 +4,31 @@ import Header from './components/Header'
 import { InputGroup, FormControl } from 'react-bootstrap';
 
 function App() {
-
   const [showData, setShowData] = useState([])
+  const[ name, setName] = useState("")
+  const[ message, setMessage] = useState(0)
 
+  //render first display data
   useEffect(()=>{
     Axios.get('http://localhost:3001/')
     .then(res=>{
-      console.log(res.data)
+      // console.log(res.data)
       return setShowData(res.data)
     })
-    
   },[])
+  
+  //create/input new data
+  const createMessage = () => {
+    // console.log(name,message)
+    Axios.post('http://localhost:3001/create/',
+    {
+      name: name,
+      messages: message
+    })
+    .then(res=>{
+      alert('message addeded')
+    })
+  }
 
   return (
     <div className="main-container">
@@ -25,6 +39,7 @@ function App() {
           <InputGroup  >
             <InputGroup.Text  id="inputGroup-sizing-default">Name</InputGroup.Text>
             <FormControl
+              onChange={(e)=>setName(e.target.value)}
               aria-label="Default"
               aria-describedby="inputGroup-sizing-default"
             />
@@ -33,11 +48,12 @@ function App() {
           <InputGroup >
             <InputGroup.Text id="inputGroup-sizing-default">Message</InputGroup.Text>
             <FormControl
+              onChange={(e)=>setMessage(e.target.value)}
               aria-label="Default"
               aria-describedby="inputGroup-sizing-default"
             />
           </InputGroup>
-          <button className='text-light bg-primary'>Submit</button>
+          <button className='text-light bg-primary' onClick={createMessage}>Submit</button>
         </div>
       </div>
 
