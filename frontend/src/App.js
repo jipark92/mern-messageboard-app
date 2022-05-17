@@ -16,16 +16,20 @@ function App() {
       return setShowData(res.data)
     })
   },[])
-  
+
   //create/input new data
   const createMessage = () => {
     // console.log(name,message)
     Axios.post('http://localhost:3001/create/',
     {
       name: name,
-      messages: message
+      message: message
     })
     .then(res=>{
+      setShowData([...showData, {
+        name: name,
+        message: message
+      }])
       alert('message addeded')
     })
   }
