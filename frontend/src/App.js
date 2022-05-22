@@ -10,7 +10,7 @@ function App() {
 
   //render first display data
   useEffect(()=>{
-    Axios.get('http://localhost:3001/')
+    Axios.get('https://mern-messageboard.herokuapp.com/')
     .then(res=>{
       // console.log(res.data)
       return setShowData(res.data)
@@ -20,7 +20,7 @@ function App() {
   //create/input new data
   const createMessage = () => {
     // console.log(name,message)
-    Axios.post('http://localhost:3001/create/',
+    Axios.post('https://mern-messageboard.herokuapp.com/create/',
     {
       name: name,
       message: message
