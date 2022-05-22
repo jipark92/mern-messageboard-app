@@ -2,6 +2,7 @@ const express = require('express')
 const app = express()
 const mongoose = require('mongoose')
 const cors = require('cors')
+require('dotenv').config();
 
 const MessageBoardModel = require('./models/MessageBoard')
 
@@ -26,7 +27,7 @@ app.post ('/create', async (req,res)=>{
     const message = req.body
     const newMessage = new MessageBoardModel(message)
     await newMessage.save();
-    res.json(message)
+    res.json(message) 
 })
 
-app.listen(3001, ()=>{console.log(`connect to port 3001`)})
+app.listen(process.env.PORT || 3001, ()=>{console.log(`connect to port 3001`)})
